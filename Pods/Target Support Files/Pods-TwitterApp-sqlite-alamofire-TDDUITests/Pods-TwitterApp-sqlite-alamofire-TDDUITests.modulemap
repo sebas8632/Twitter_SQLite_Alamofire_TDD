@@ -1,0 +1,6 @@
+framework module Pods_TwitterApp_sqlite_alamofire_TDDUITests {
+  umbrella header "Pods-TwitterApp-sqlite-alamofire-TDDUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
