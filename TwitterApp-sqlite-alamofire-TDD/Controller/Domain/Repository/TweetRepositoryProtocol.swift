@@ -10,7 +10,7 @@ import Foundation
 
 protocol TweetRepositoryProtocol {
     
-    func addTweet(user: String, password: String)
+    func addTweet(name: String, date: String, text: String)
     func getTweets() -> [TweetDTO]
     
 }

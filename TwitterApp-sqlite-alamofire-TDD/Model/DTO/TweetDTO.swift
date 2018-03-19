@@ -10,13 +10,15 @@ import Foundation
 
 struct TweetDTO {
     
-    var user: String?
-    var password: String?
+    var name: String?
+    var date: String?
+    var text: String?
     
     
-    init(user: String, password: String) {
-        self.user = user
-        self.password = password
+    init(name: String, date: String, text: String) {
+        self.name = name
+        self.date = date
+        self.text = text
     }
     
 }

@@ -20,10 +20,10 @@
 		B1114FE52055FA5A00217153 /* TwitterDomainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1114FE42055FA5A00217153 /* TwitterDomainTest.swift */; };
 		B1114FEB2055FCFC00217153 /* TweetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1114FEA2055FCFC00217153 /* TweetDTO.swift */; };
 		B1114FED205600E100217153 /* TweetDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1114FEC205600E100217153 /* TweetDomain.swift */; };
-		B1114FF12056044F00217153 /* TweetDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1114FF02056044F00217153 /* TweetDB.swift */; };
 		B1114FF820560E4000217153 /* TweetRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1114FF720560E4000217153 /* TweetRepositoryProtocol.swift */; };
 		B1114FFA20560EE100217153 /* TweetMockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1114FF920560EE100217153 /* TweetMockRepository.swift */; };
 		B1114FFC20560F0B00217153 /* TweetDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1114FFB20560F0B00217153 /* TweetDao.swift */; };
+		B1E6F713205F35EF005EA47E /* BaseDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E6F712205F35EF005EA47E /* BaseDao.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,10 +67,10 @@
 		B1114FE42055FA5A00217153 /* TwitterDomainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterDomainTest.swift; sourceTree = "<group>"; };
 		B1114FEA2055FCFC00217153 /* TweetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetDTO.swift; sourceTree = "<group>"; };
 		B1114FEC205600E100217153 /* TweetDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetDomain.swift; sourceTree = "<group>"; };
-		B1114FF02056044F00217153 /* TweetDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetDB.swift; sourceTree = "<group>"; };
 		B1114FF720560E4000217153 /* TweetRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetRepositoryProtocol.swift; sourceTree = "<group>"; };
 		B1114FF920560EE100217153 /* TweetMockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetMockRepository.swift; sourceTree = "<group>"; };
 		B1114FFB20560F0B00217153 /* TweetDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetDao.swift; sourceTree = "<group>"; };
+		B1E6F712205F35EF005EA47E /* BaseDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDao.swift; sourceTree = "<group>"; };
 		B20AF41D1D75D9F1D227A657 /* Pods_TwitterApp_sqlite_alamofire_TDD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterApp_sqlite_alamofire_TDD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C01440FFE2ED260143A8C1AA /* Pods-TwitterApp-sqlite-alamofire-TDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterApp-sqlite-alamofire-TDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterApp-sqlite-alamofire-TDD/Pods-TwitterApp-sqlite-alamofire-TDD.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +138,7 @@
 		B1114FB12055F21200217153 /* TwitterApp-sqlite-alamofire-TDD */ = {
 			isa = PBXGroup;
 			children = (
+				B1E6F70E205F2398005EA47E /* SQLite */,
 				B1114FE22055F38F00217153 /* Model */,
 				B1114FE12055F38900217153 /* View */,
 				B1114FE02055F38000217153 /* Controller */,
@@ -188,7 +189,6 @@
 		B1114FE22055F38F00217153 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B1114FE92055FC0000217153 /* DB */,
 				B1114FE82055FBFB00217153 /* DTO */,
 			);
 			path = Model;
@@ -218,14 +218,6 @@
 				B1114FEA2055FCFC00217153 /* TweetDTO.swift */,
 			);
 			path = DTO;
-			sourceTree = "<group>";
-		};
-		B1114FE92055FC0000217153 /* DB */ = {
-			isa = PBXGroup;
-			children = (
-				B1114FF02056044F00217153 /* TweetDB.swift */,
-			);
-			path = DB;
 			sourceTree = "<group>";
 		};
 		B1114FF320560DE100217153 /* Repository */ = {
@@ -259,6 +251,22 @@
 			children = (
 			);
 			path = Real;
+			sourceTree = "<group>";
+		};
+		B1E6F70E205F2398005EA47E /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				B1E6F70F205F23B3005EA47E /* Connection */,
+			);
+			path = SQLite;
+			sourceTree = "<group>";
+		};
+		B1E6F70F205F23B3005EA47E /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				B1E6F712205F35EF005EA47E /* BaseDao.swift */,
+			);
+			path = Connection;
 			sourceTree = "<group>";
 		};
 		B7647EB1CF3DA5D08AE77926 /* Pods */ = {
@@ -574,9 +582,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1114FB52055F21200217153 /* ViewController.swift in Sources */,
-				B1114FF12056044F00217153 /* TweetDB.swift in Sources */,
 				B1114FED205600E100217153 /* TweetDomain.swift in Sources */,
 				B1114FF820560E4000217153 /* TweetRepositoryProtocol.swift in Sources */,
+				B1E6F713205F35EF005EA47E /* BaseDao.swift in Sources */,
 				B1114FFA20560EE100217153 /* TweetMockRepository.swift in Sources */,
 				B1114FEB2055FCFC00217153 /* TweetDTO.swift in Sources */,
 				B1114FFC20560F0B00217153 /* TweetDao.swift in Sources */,

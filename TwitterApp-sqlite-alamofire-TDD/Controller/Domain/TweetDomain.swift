@@ -15,8 +15,8 @@ class TweetDomain {
         self.tweetRemoteRepository = tweetRemoteRepository
     }
   
-    func addTweet(user: String, password: String) {
-        tweetRemoteRepository?.addTweet(user: user, password: password)
+    func addTweet(name: String, date: String, text: String) {
+        tweetRemoteRepository?.addTweet(name: name, date: date, text: text)
     }
     
     func getTweets() -> [TweetDTO]{

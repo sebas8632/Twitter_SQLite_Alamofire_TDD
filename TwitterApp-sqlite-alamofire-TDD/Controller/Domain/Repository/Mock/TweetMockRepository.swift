@@ -8,7 +8,8 @@
 
 import Foundation
 
-class TweetMockRepository: TweetRepositoryProtocol {  
+class TweetMockRepository: TweetRepositoryProtocol {
+   
    
     init() {
         
@@ -16,9 +17,9 @@ class TweetMockRepository: TweetRepositoryProtocol {
     
     var tweetsList: [TweetDTO] = []
 
-    func addTweet(user: String, password: String) {
+    func addTweet(name: String, date: String, text: String) {
         
-        tweetsList.append(TweetDTO(user: user, password: password))
+        tweetsList.append(TweetDTO(name: name, date: date, text: text))
     }
  
     func getTweets() -> [TweetDTO] {

@@ -28,16 +28,40 @@ class TwitterDomainTest: XCTestCase {
         //  let tweetMockDao: TweetDao?
         
         let domain: TweetDomain = TweetDomain(tweetRemoteRepository: tweetMockRepository)
-        domain.addTweet(user: "juan", password: "123")
-        domain.addTweet(user: "sebastián", password: "1234")
-        domain.addTweet(user: "Laura", password: "12445")
+        domain.addTweet(name: "juan", date: "sabado", text: "Hey")
+        domain.addTweet(name: "sebastián", date: "domingo", text: "Hey")
+        domain.addTweet(name: "Laura", date: "lunes", text: "Hey")
         
         //WHEN
         let tweetList: [TweetDTO] = domain.getTweets()
         
         //THEN
         XCTAssertEqual(3, tweetList.count)
+    }
+    
+    func testSaveTweetsOnSQLite() {
         
+        //GIVEN
+        var tweetDao: TweetDao
+        do {
+            tweetDao = try! TweetDao()
+            var tweetList: [TweetDTO] = []
+            tweetList.append(TweetDTO(name: "Juan", date: "sabado", text: "Hola"))
+            
+        
+            //WHEN
+           try! tweetDao.saveTweets(tweetList: tweetList)
+            
+            var tweets = tweetDao.getTweets()
+
+            //THEN
+            XCTAssertEqual("Hola", tweets[0].text)
+        }
+        catch
+        {
+            print(error)
+        }
+
     }
     
 }
